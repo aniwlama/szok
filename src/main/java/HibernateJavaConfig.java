@@ -1,4 +1,5 @@
 import model.CustomerEmployee;
+import model.Lecture;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -30,6 +31,7 @@ public class HibernateJavaConfig implements HibernateConfig {
                 //settings.put(Environment.HBM2DDL_AUTO, "create");
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(CustomerEmployee.class); // to be added once entity is created
+                configuration.addAnnotatedClass(Lecture.class); // to be added once entity is created
 
 
                 serviceRegistry = new StandardServiceRegistryBuilder()

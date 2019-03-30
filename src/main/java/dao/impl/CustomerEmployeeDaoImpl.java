@@ -12,11 +12,13 @@ import java.util.List;
 
 public class CustomerEmployeeDaoImpl implements CustomerEmployeeDao {
 
+    private final SessionFactory sessionFactory;
+
     public CustomerEmployeeDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    private final SessionFactory sessionFactory;
+
 
     @Override
     public List<CustomerEmployee> findAll() {

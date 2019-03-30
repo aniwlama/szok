@@ -1,5 +1,7 @@
 import dao.CustomerEmployeeDao;
+import dao.LectureDao;
 import dao.impl.CustomerEmployeeDaoImpl;
+import dao.impl.LectureDaoImpl;
 import model.CustomerEmployee;
 import org.hibernate.SessionFactory;
 
@@ -24,6 +26,11 @@ public class Main {
         customerEmployeeDao.insertEmployee(employee);
         System.out.println(customerEmployeeDao.getCustomerEmployeeByID(11));
         customerEmployeeDao.deleteEmployee(11);
+
+
+        LectureDao lectureDao = new LectureDaoImpl(sessionFactory);
+        lectureDao.findAll();
+
         config.shutdown();
     }
 
