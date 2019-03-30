@@ -1,6 +1,6 @@
 
+import model.Payment;
 import model.Teacher;
-
 import model.CustomerEmployee;
 
 import org.hibernate.SessionFactory;
@@ -37,6 +37,7 @@ public class HibernateJavaConfig implements HibernateConfig {
                 configuration.addAnnotatedClass(Teacher.class);
                 //configuration.addAnnotatedClass(Admin.class); // to be added once entity is created
                 configuration.addAnnotatedClass(CustomerEmployee.class); // to be added once entity is created
+                configuration.addAnnotatedClass(Payment.class);
 
 
                 serviceRegistry = new StandardServiceRegistryBuilder()
