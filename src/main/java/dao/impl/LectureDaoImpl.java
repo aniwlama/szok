@@ -4,6 +4,7 @@ import dao.LectureDao;
 import model.Lecture;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Query;
 
 import java.util.List;
 
@@ -27,7 +28,12 @@ public class LectureDaoImpl implements LectureDao {
 
     @Override
     public Lecture getLectureByID(int lectureID) {
-        return null;
+        try(Session session = sessionFactory.openSession()){
+          Query<Lecture> query = session.createQuery("from Lecture where lectureID =: lectureID", Lecture.class);
+          query.setParameter("lectureID", lectureID);
+          return query.getSingleResult();
+
+        }
     }
 
     @Override

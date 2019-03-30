@@ -53,6 +53,7 @@ public class Main {
 
         LectureDao lectureDao = new LectureDaoImpl(sessionFactory);
         lectureDao.findAll();
+        System.out.println(lectureDao.getLectureByID(9));
 
         config.shutdown();
     }
