@@ -13,4 +13,5 @@ public interface LectureDao {
     boolean insertLecture(Lecture lecture);
 
     boolean deleteLecture(int lectureID);
+
 }
