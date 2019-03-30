@@ -5,8 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
+@NamedQuery(name = "CustomerEmployee_byEmployeeID", query = "from CustomerEmployee where employeeID =: employeeID")
 @Entity
-@Table(name = "customers'employees")
+@Table(name = "customersemployees")
 public class CustomerEmployee {
     @Id
     private int employeeID;
@@ -16,7 +17,5 @@ public class CustomerEmployee {
     @Column(unique = true)
     private String email;
     private int conferenceID;
-
-
 
 }
