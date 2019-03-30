@@ -1,3 +1,5 @@
+import model.ConferenceParticipants;
+import model.Firms;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,9 +20,9 @@ public class HibernateJavaConfig implements HibernateConfig {
                 Configuration configuration = new Configuration();
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/public?allowPublicKeyRetrieval=true&useSSL=false");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "dbpassword");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/szok?allowPublicKeyRetrieval=true&useSSL=false");
+                settings.put(Environment.USER, "newuser");
+                settings.put(Environment.PASS, "password");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.FORMAT_SQL, "true");
@@ -28,6 +30,8 @@ public class HibernateJavaConfig implements HibernateConfig {
 
                 //settings.put(Environment.HBM2DDL_AUTO, "create");
                 configuration.setProperties(settings);
+                configuration.addAnnotatedClass(ConferenceParticipants.class);
+                configuration.addAnnotatedClass(Firms.class);
                 //configuration.addAnnotatedClass(Admin.class); // to be added once entity is created
                 
 
