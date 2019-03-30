@@ -1,5 +1,16 @@
+
 import model.ConferenceParticipants;
 import model.Firms;
+
+
+import model.Payment;
+import model.Teacher;
+import model.CustomerEmployee;
+
+import model.Lecture;
+
+
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -7,6 +18,8 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
+
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 public class HibernateJavaConfig implements HibernateConfig {
 
@@ -32,8 +45,18 @@ public class HibernateJavaConfig implements HibernateConfig {
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(ConferenceParticipants.class);
                 configuration.addAnnotatedClass(Firms.class);
+
+
+                configuration.addAnnotatedClass(Teacher.class);
+
                 //configuration.addAnnotatedClass(Admin.class); // to be added once entity is created
-                
+                configuration.addAnnotatedClass(CustomerEmployee.class); // to be added once entity is created
+
+                configuration.addAnnotatedClass(Lecture.class); // to be added once entity is created
+
+                configuration.addAnnotatedClass(Payment.class);
+
+
 
                 serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties())
